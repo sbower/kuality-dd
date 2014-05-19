@@ -1,0 +1,29 @@
+%p#notice= notice
+
+%h4 
+  = @scenario.name
+
+%br
+
+%b Feature:
+= link_to @scenario.feature.name, @scenario.feature
+
+%br
+
+%b Tags:
+- @scenario.tags.each do |tag|
+  = link_to tag.name, tag 
+
+%br
+%br  
+  %b Steps:
+%br
+  %table{class: "table"}
+    - @scenario.scenarios_steps.each do |scenarios_step|
+      %tr
+        %td= scenarios_step.keyword
+        %td= scenarios_step.step.name
+
+-#= link_to 'Edit', edit_scenario_path(@scenario)
+-#\|
+-#= link_to 'Back', scenario_path

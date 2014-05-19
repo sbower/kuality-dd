@@ -1,0 +1,18 @@
+%h1 Scenarios
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @scenarios.each do |scenario|
+    %tr
+      %td= scenario.name
+      %td= link_to 'Edit', edit_scenario_path(scenario)
+      %td= link_to 'Destroy', scenario, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Scenarios', new_scenario_path

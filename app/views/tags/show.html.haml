@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @tag.name
+
+%p 
+  %b Scenarios:
+  %table
+    %tr
+      %th 
+      %th
+      %th
+    - @tag.scenarios.each do |scenario|
+      %tr
+        %td= scenario.name
+        %td= link_to 'view', scenario
+        
+= link_to 'Edit', edit_tag_path(@tag)
+\|
+= link_to 'Back', tag_path

@@ -1,0 +1,26 @@
+%p#notice= notice
+
+%p
+  %b
+    = @feature.name
+  %br
+    .runFeature#run_feature
+      Run This Feature
+%b
+  Scenarios  
+%table{class: "table"}
+  %tr
+    %th 
+    %th Name
+    %th 
+  - @feature.scenarios.each do |scenario|
+    %tr
+      %td
+      %td= scenario.name
+      %td= link_to 'view', scenario
+
+%div#data
+
+-#= link_to 'Edit', edit_feature_path(@feature)
+-#  \|
+-#= link_to 'Back', feature_path

@@ -1,0 +1,25 @@
+%section.content
+  .search_results
+  
+    %h2 Features
+
+    %ul.features
+      = render partial: "features/listing", collection: results_of_type(@results, Feature)
+    .clear
+    %h2 Scenarios
+
+    %ul.scenarios
+      = render partial: "scenarios/listing", collection: results_of_type(@results, Scenario)
+    
+    .clear
+    %h2 Steps
+
+    %ul.steps
+      = render partial: "steps/listing", collection: results_of_type(@results, Step)
+    
+    .clear
+    %h2 Tags
+
+    %ul.tags
+      = render partial: "tags/listing", collection: results_of_type(@results, Tag)
+    .clear

@@ -1,0 +1,19 @@
+%h2 Features
+
+%table{class: "table"}
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @features.each do |feature|
+    %tr
+      %td= feature.name
+      %td= link_to 'View', feature
+      %td= link_to 'Edit', edit_feature_path(feature)
+      %td= link_to 'Destroy', feature, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+-#= link_to 'New Features', new_feature_path
