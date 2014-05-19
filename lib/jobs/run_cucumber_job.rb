@@ -5,7 +5,7 @@ class RunCucumberJob
 
     puts "Running job"
     
-    cmd = "/Users/srb55/.rvm/gems/jruby-1.7.11/gems/cucumber-1.3.12/bin/cucumber -r /Users/srb55/projects/kuality-kfs-cu/features /Users/srb55/projects/kuality-kfs-cu/features/financial_processing/auxiliary_voucher.feature" 
+    cmd = "/Users/srb55/.rvm/gems/jruby-1.7.4/gems/cucumber-1.3.12/bin/cucumber  -r /Users/srb55/projects/kuality-kfs-cu/features /Users/srb55/projects/kuality-kfs-cu/features/chart_of_accounts/sub_account.feature" 
 
     begin
           PTY.spawn( cmd ) do |stdin, stdout, pid|
@@ -30,6 +30,6 @@ class RunCucumberJob
   
   
   def self.queued?
-    Delayed::Job.where(:handler => "--- !ruby/object:ParseFeaturesJob {}\n\n").count > 0
+    Delayed::Job.where(:handler => "--- !ruby/object:RunCucumberJob {}\n\n").count > 0
   end
 end

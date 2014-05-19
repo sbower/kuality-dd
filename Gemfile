@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.1.1'
@@ -38,16 +38,16 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'jdbc-sqlite3'
+gem 'activerecord-jdbcsqlite3-adapter'
 
 gem 'delayed_job_active_record'
 gem 'gherkin'
 gem 'inherited_resources'
 gem 'haml-rails'
+gem 'test-factory'
 gem 'cucumber'
 gem 'kuality-kfs'
 gem 'rspec'
 gem 'pusher'
-
-#gem 'jdbc-sqlite3'
-#gem 'activerecord-jdbcsqlite3-adapter'
-
+gem 'headless'

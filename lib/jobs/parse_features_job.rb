@@ -50,7 +50,7 @@ class ParseFeaturesJob
 
     
     #Requeue the job
-    #Delayed::Job.enqueue ParseFeaturesJob.new, 0, 30.seconds.from_now
+    #Delayed::Job.enqueue ParseFeaturesJob.new, 0, 3.seconds.from_now
   end
   
   
