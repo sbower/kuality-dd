@@ -3,6 +3,7 @@ class CreateFeatures < ActiveRecord::Migration
     create_table :features do |t|
       t.string :name
       t.integer :line
+      t.string :uri
       t.string :json_id, :null => false 
       t.text :description
       t.timestamps

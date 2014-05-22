@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20140518135708) do
   create_table "features", force: true do |t|
     t.string   "name"
     t.integer  "line"
+    t.string   "uri"
     t.string   "json_id",     null: false
     t.text     "description"
     t.datetime "created_at"

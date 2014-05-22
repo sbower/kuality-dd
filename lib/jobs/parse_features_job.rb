@@ -12,8 +12,8 @@ class ParseFeaturesJob
     formatter = Gherkin::Formatter::JSONFormatter.new(io)
     parser = Gherkin::Parser::Parser.new(formatter)
     
-    sources = ["/Users/srb55/projects/kuality-kfs-cu/features/financial_processing/disbursement_voucher.feature", 
-               "/Users/srb55/projects/kuality-kfs-cu/features/financial_processing/auxiliary_voucher.feature"]
+    sources = Dir["/Users/srb55/projects/kuality-kfs-cu/features/**/*.feature"]
+    
     sources.each do |s|
       parser.parse(IO.read(s), s, 0)
     end
@@ -32,6 +32,7 @@ class ParseFeaturesJob
       feature.name = hash['name']
       feature.line = hash['line']
       feature.description = hash['description']
+      feature.uri = hash['uri']
       feature.json_id = json_id
       
       feature.save
@@ -44,11 +45,7 @@ class ParseFeaturesJob
       
       puts "\n\n"
     end
-    
-    
-    #puts MultiJson.dump(MultiJson.load(io.string), :pretty => true)
 
-    
     #Requeue the job
     #Delayed::Job.enqueue ParseFeaturesJob.new, 0, 3.seconds.from_now
   end

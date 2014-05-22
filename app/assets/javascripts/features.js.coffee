@@ -4,7 +4,8 @@
 
 ready = ->
   $("#run_feature").click ->
-    $.get ('/runfeature')
+    $.get ('/runfeature/?id='+ gon.feature_id)
     
+  
 $(document).ready(ready);
 $(document).on('page:load', ready);

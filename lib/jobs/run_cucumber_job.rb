@@ -1,11 +1,17 @@
 require 'pty'
 
-class RunCucumberJob 
+class RunCucumberJob
+  
+  def initialize(uri)
+    @uri = uri
+  end
+  
   def perform
 
     puts "Running job"
+    puts "#{@uri}"
     
-    cmd = "/Users/srb55/.rvm/gems/jruby-1.7.4/gems/cucumber-1.3.12/bin/cucumber  -r /Users/srb55/projects/kuality-kfs-cu/features /Users/srb55/projects/kuality-kfs-cu/features/chart_of_accounts/sub_account.feature" 
+    cmd = "/Users/srb55/.rvm/gems/jruby-1.7.4/gems/cucumber-1.3.12/bin/cucumber  -r /Users/srb55/projects/kuality-kfs-cu/features #{@uri}" 
 
     begin
           PTY.spawn( cmd ) do |stdin, stdout, pid|

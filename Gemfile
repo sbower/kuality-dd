@@ -41,6 +41,8 @@ gem 'spring',        group: :development
 gem 'jdbc-sqlite3'
 gem 'activerecord-jdbcsqlite3-adapter'
 
+gem 'gon'
+
 gem 'delayed_job_active_record'
 gem 'gherkin'
 gem 'inherited_resources'
@@ -51,3 +53,6 @@ gem 'kuality-kfs'
 gem 'rspec'
 gem 'pusher'
 gem 'headless'
+gem 'therubyrhino'
+gem 'mechanize'
+gem 'xml-simple'
