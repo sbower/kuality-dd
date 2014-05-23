@@ -26,7 +26,7 @@ class RunCucumberJob
                     "that the process has finished giving output"
             end
           end
-        rescue PTY::ChildExited
+        rescue #PTY::ChildExited
           puts "The child process exited!"
         end
     
