@@ -13,14 +13,13 @@
       $("#data").append(data.message.replace("\n", "<br>"));
     });
   </script>
-  <%= include_gon %>
   <%= csrf_meta_tags %>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
 <body>
-
+    <%= include_gon %>
     <div class="container">
       <div class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
