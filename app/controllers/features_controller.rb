@@ -7,6 +7,6 @@ class FeaturesController < InheritedResources::Base
   
   def run
     @feature = Feature.find(params[:id])
-    Delayed::Job.enqueue RunCucumberJob.new(@feature.uri), 0, 3.seconds.from_now
+    Delayed::Job.enqueue RunCucumberJob.new(@feature.uri, params[:event]), 0, 3.seconds.from_now
   end
 end

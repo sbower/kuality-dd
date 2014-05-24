@@ -3,8 +3,9 @@ require 'ansisys'
 
 class RunCucumberJob
   
-  def initialize(uri)
+  def initialize(uri, event)
     @uri = uri
+    @event = event
   end
   
   def perform
@@ -25,7 +26,7 @@ class RunCucumberJob
                 terminal.echo(line)
                 
                 if !line.include?("INFO:")
-                  Pusher['test_channel'].trigger('my_event', { message: terminal.render.gsub(ENV['FEATURE_PATH'], '') })
+                  Pusher['test_channel'].trigger(@event, { message: terminal.render.gsub(ENV['FEATURE_PATH'], '') })
                 end
               }
             rescue Errno::EIO
