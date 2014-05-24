@@ -1,4 +1,5 @@
 require 'pty'
+require 'ansisys'
 
 class RunCucumberJob
   
@@ -19,15 +20,18 @@ class RunCucumberJob
                             
               stdin.each { |line| 
                 print line 
-                Pusher['test_channel'].trigger('my_event', { message: line})
+                terminal = AnsiSys::Terminal.new
+                terminal.echo(line)
+
+                Pusher['test_channel'].trigger('my_event', { message: terminal.render })
               }
             rescue Errno::EIO
               puts "Errno:EIO error, but this probably just means " +
                     "that the process has finished giving output"
             end
           end
-        rescue #PTY::ChildExited
-          puts "The child process exited!"
+        #rescue #PTY::ChildExited
+        #  puts "The child process exited!"
         end
     
     #Requeue the job
