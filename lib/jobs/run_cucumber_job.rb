@@ -12,8 +12,9 @@ class RunCucumberJob
     puts "Running job"
     puts "#{@uri}"
     
-    cmd = "/Users/srb55/.rvm/gems/jruby-1.7.4/gems/cucumber-1.3.12/bin/cucumber  -r /Users/srb55/projects/kuality-kfs-cu/features #{@uri}" 
-
+    cmd = "cucumber -r #{ENV['FEATURE_PATH']} #{@uri}" 
+    
+                    
     begin
           PTY.spawn( cmd ) do |stdin, stdout, pid|
             begin
@@ -22,8 +23,10 @@ class RunCucumberJob
                 print line 
                 terminal = AnsiSys::Terminal.new
                 terminal.echo(line)
-
-                Pusher['test_channel'].trigger('my_event', { message: terminal.render })
+                
+                if !line.include?("INFO:")
+                  Pusher['test_channel'].trigger('my_event', { message: terminal.render.gsub(ENV['FEATURE_PATH'], '') })
+                end
               }
             rescue Errno::EIO
               puts "Errno:EIO error, but this probably just means " +

@@ -1,2 +1,11 @@
-%h1 Tags#index
-%p Find me in app/views/tags/index.html.haml
+%h2 Tags
+
+%table{class: "table"}
+  %tr
+    %th Name
+    %th
+
+  - @tags.each do |tag|
+    %tr
+      %td= tag.name
+      %td= link_to 'View', tag

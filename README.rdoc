@@ -1,3 +1,9 @@
 == README
 
 Application to parse and store cucumber features in a searchable format
+
+== Setup
+
+
+export FEATURE_PATH=/Users/srb55/projects/kuality-kfs-cu/features/
+#{ENV['FEATURE_PATH']}

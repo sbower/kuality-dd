@@ -19,8 +19,14 @@
       %td= scenario.name
       %td= link_to 'view', scenario
 
-%div#data
-
--#= link_to 'Edit', edit_feature_path(@feature)
--#  \|
--#= link_to 'Back', feature_path
+#data_modal.modal.fade{tabindex: "-1", role: "dialog", "aria-hidden" => "true", "aria-labelledby" => "modalTile"}
+  .modal-dialog
+    .modal-content.modal-lg
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} X
+        %h3#modalTile.modal-title Running Feature
+      .modal-body
+        %div#data
+          -# =image_tag "loading.gif"
+      .modal-footer
+        %button.btn{"data-dismiss" => "modal", :type => "button"} Close

@@ -1,2 +1,12 @@
-%h1 Steps#show
-%p Find me in app/views/steps/show.html.haml
+%p#notice= notice
+
+%h4= @step.name
+%br
+
+%b Scenarios:
+
+%table{class: "table"}
+  - @step.scenarios.each do |scenario|
+    %tr
+      %td= scenario.name
+      %td= link_to 'view', scenario

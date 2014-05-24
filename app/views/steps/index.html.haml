@@ -1,2 +1,11 @@
-%h1 Steps#index
-%p Find me in app/views/steps/index.html.haml
+%h2 Steps
+
+%table{class: "table"}
+  %tr
+    %th Name
+    %th
+
+  - @steps.each do |step|
+    %tr
+      %td= step.name
+      %td= link_to 'View', step

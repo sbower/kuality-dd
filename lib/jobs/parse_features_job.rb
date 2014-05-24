@@ -12,7 +12,7 @@ class ParseFeaturesJob
     formatter = Gherkin::Formatter::JSONFormatter.new(io)
     parser = Gherkin::Parser::Parser.new(formatter)
     
-    sources = Dir["/Users/srb55/projects/kuality-kfs-cu/features/**/*.feature"]
+    sources = Dir["#{ENV['FEATURE_PATH']}/**/*.feature"]
     
     sources.each do |s|
       parser.parse(IO.read(s), s, 0)
