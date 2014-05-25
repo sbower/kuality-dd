@@ -21,7 +21,7 @@ gem 'activerecord-jdbcsqlite3-adapter'
 
 #project specific libs
 gem 'gon'
-gem 'ansi-sys', :git => 'git@github.com:sbower/ansi-sys.git'
+gem 'ansi-sys', :git => 'https://github.com/sbower/ansi-sys.git'
 gem 'inherited_resources'
 gem 'haml-rails'
 gem 'delayed_job_active_record'
